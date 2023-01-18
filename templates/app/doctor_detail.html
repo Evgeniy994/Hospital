@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="doctor_detail">
+        <h1 class="text-center">Doctor's personal page</h1>
+        <br>
+        <div class="row py-10 doctor_detail_block">
+            <div class="col-sm-5">
+                {{ doctor.first_name }} {{ doctor.last_name }} from
+
+                {% for departments in doctor.department.all %}
+                    <a href="{% url 'app:departments_detail' pk=departments.id %}">{{ departments.name }}</a>
+                    {% empty %}
+                    <b>Sorry, something wrong. This person does not belong to any departments.</b>
+                {% endfor %}
+                <br>
+                <br>
+                With {{ doctor.experience }} years of experience.
+                <br>
+                <br>
+                Contact number: <strong>{{ doctor.contacts }}</strong>
+                <br>
+                <br>
+                <a class="btn btn-warning" href="{% url 'app:doctors_update' pk=doctor.id %}">Update</a>
+                &nbsp &nbsp
+                <a class="btn btn-danger" href="{% url 'app:doctors_delete' pk=doctor.id %}">Delete</a>
+            
+            </div>
+            <div class="col-sm-3"></div>
+
+            <img class="img-thumbnail rounded-circle" style="width: 15%; height: 15%;" src="{{ doctor.avatar.url }}" alt="sorry, something wrong">
+        </div>
+    </div>
+{% endblock %}
+{% block background %}
+    <div class="doctors_background"></div>
+{% endblock %}

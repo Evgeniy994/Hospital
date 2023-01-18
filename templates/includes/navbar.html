@@ -1,0 +1,39 @@
+<nav class="navbar navbar-light navbar-expand-lg bg-navbar fixed-top">
+    <a class="navbar-brand">
+        <img src="/static/images/brand-logo.jpeg" alt="" height="25">
+        Hospital
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="my-nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'app:index' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'app:doctors_list' %}">Doctors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'app:departments_list' %}">Departments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'app:doctors_contact_list' %}">Contacts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'app:contact_us' %}">Feedback</a>
+            </li>
+        </ul>
+        <form class="form my-2 my-lg-0">
+             {% if user.is_authenticated %}
+                 Username: <a href="{% url 'app:doctor_detail' pk=user.id %}">{{ user.get_username }}</a>
+                 <img class="img-thumbnail rounded-circle" style="width: 25px; height: 25px;" src="{{ user.avatar.url }}">
+                 &nbsp &nbsp
+                 <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+            {% else %}
+                <a href="{% url 'login'%}?next={{request.path}}">Login</a>
+            {% endif %}
+        </form>
+    </div>
+</nav>

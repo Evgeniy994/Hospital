@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="department_detail">
+        <h1 class="text-center">{{ department.name }}</h1>
+        <br>
+        <div class="department_description">
+            {{ department.description }}
+            <br>
+            <br>
+            <a class="btn btn-warning" href="{% url 'app:departments_update' pk=department.id %}">Update</a>
+            &nbsp &nbsp
+            <a class="btn btn-danger" href="{% url 'app:departments_delete' pk=department.id %}">Delete</a>
+        </div>
+        <div>
+            <br>
+            <h2 class="text-center">Physicians in this department:</h2>
+            <div class="department_doctor">
+                <ul>
+                    {% for doctors in department.doctor_set.all %}
+                    <li>
+                        <a class="btn btn-info"  href="{% url 'app:doctor_detail' pk=doctors.id %}">
+                        {{ doctors.first_name }} {{ doctors.last_name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block background %}
+    <div class="departments_background"></div>
+{% endblock %}

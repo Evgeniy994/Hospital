@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="text-center">
+        <h1>Hospital home page</h1>
+        <p>We already have {{ num_doctors }} doctors in different departments.
+            You can find contacts and information about each of them.</p>
+    </div>
+    <br>
+    <div>
+        <p>
+            <img class="home_images" height="28%" width="28%"  alt="image with doctor" src="{{ "../images/Img_home_1.jpeg" }}">
+            <img class="home_images"  height="29%" width="29%"  alt="image with doctor" src="{{ "../images/Img_home_2.jpeg" }}">
+        </p>
+    </div>
+    <br>
+    <div class="text-center">
+        <p>We are located at 11010 Torreyana Rd in San Diego.</p>
+    </div>
+{% endblock %}
+{% block background %}
+    <div class="home_background"></div>
+{% endblock %}}

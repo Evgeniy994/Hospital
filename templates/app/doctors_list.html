@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="doctor_list">
+        <h1 class="doctors-header">Doctors &nbsp &nbsp &nbsp <a href="{% url 'app:doctors_create' %}">+</a></h1>
+        <ul>
+            {% for doctor in doctors_list %}
+                <div>
+                    <li>
+                        <b>Name:</b> <i><a href="{% url 'app:doctor_detail' pk=doctor.id %}">{{ doctor.first_name }}</a></i>
+                        <br>
+                        <b>Surname:</b> <i><a href="{% url 'app:doctor_detail' pk=doctor.id %}">{{ doctor.last_name }}</a></i>
+                        <br>
+                        Departments:
+                        {% for departments in doctor.department.all %}
+                             <ol><a href="{% url 'app:departments_detail' pk=departments.id %}">{{ departments.name }}</a></ol>
+                        {% endfor %}
+
+                        <br>
+                        <br>
+                    </li>
+                </div>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
+{% block background %}
+    <div class="doctors_background"></div>
+{% endblock %}

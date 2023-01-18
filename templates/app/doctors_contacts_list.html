@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="contact_list">
+    <h1>Doctors contacts</h1>
+    <ul>
+        {% for doctors_contacts in doctors_contacts_list %}
+            {% if not doctors_contacts.username != "admin" %}
+            {% else %}
+                <li>
+                    <i>Doctor</i>: <a href="{% url 'app:doctor_detail' pk=doctors_contacts.id %}"><strong>{{ doctors_contacts.first_name }} {{ doctors_contacts.last_name }}</strong></a>
+                    <br>
+                    <i>Doctor's number:</i> <strong>{{ doctors_contacts.contacts }}</strong>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
+{% block background %}
+    <div class="doctors_contacts_background"></div>
+{% endblock %}
