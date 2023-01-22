@@ -22,6 +22,7 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("app.urls")),
+    path('__debug__/', include('debug_toolbar.urls')),
     path("accounts/", include("django.contrib.auth.urls")),
     path("go-to-github/", RedirectView.as_view(url='https://github.com/Evgeniy994'), name='go-to-github'),
     path("go-to-linkedin/", RedirectView.as_view(url='https://www.linkedin.com/in/evgeny-tretiak-61659b243/'), name='go-to-linkedin'),
