@@ -4,7 +4,7 @@ Django project for managing departments and doctors in hospital
 
 ## You can check it from this link
 
-[Hospital project deploying to Render](PASTE LINK)
+[Hospital project deploying to Render](https://hospital-8g7h.onrender.com/)
 
 ## Installation
 
