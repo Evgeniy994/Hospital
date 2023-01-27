@@ -6,7 +6,7 @@
         <ul>
             {% for departments in departments_list %}
                 <li>
-                    <a href="{% url 'app:departments_detail' pk=departments.id %}">{{ departments.name }}</a>
+                    <a class="btn btn-info" href="{% url 'app:departments_detail' pk=departments.id %}">{{ departments.name }}</a>
                 </li>
             {% endfor %}
         </ul>
