@@ -27,4 +27,5 @@ python manage.py runserver
 
 ## Demo
 
-![Website interface](demo.png)
+![Website interface](demo-home-page.png)
+![Website interface](demo-doctor-page.png)
